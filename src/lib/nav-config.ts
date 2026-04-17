@@ -1,0 +1,39 @@
+/** IA-driven nav targets; paths for future routing (same-origin). */
+
+export const CONTACT_MAIL = "ask@mazelone.com" as const
+
+/** About: `/company/about#about-us` | `#history` — no `#career` here. Career page: `/company/career`. */
+export const companyNav = [
+  { label: "About", href: "/company/about#about-us" },
+  { label: "Career", href: "/company/career" },
+] as const
+
+export const productNav = [
+  { label: "MZO Document Platform", href: "/products/document-platform" },
+  { label: "MZO RAG Platform", href: "/products/rag-platform" },
+  { label: "MZO Chatbot", href: "/products/chatbot" },
+  { label: "MZO Email Agent", href: "/products/email-agent" },
+  { label: "MZO AI Translator", href: "/products/ai-translator" },
+] as const
+
+export const solutionNav = [
+  { label: "Enterprise", href: "/solutions/enterprise" },
+  { label: "Public", href: "/solutions/public" },
+  { label: "Education", href: "/solutions/education" },
+  { label: "Healthcare", href: "/solutions/healthcare" },
+  { label: "Manufacturing", href: "/solutions/manufacturing" },
+  { label: "Commerce", href: "/solutions/commerce" },
+] as const
+
+export const footerContact = {
+  tel: "(+82) 2-555-0272",
+  phones: [
+    { n: "(+82) 10-5260-4172", role: "Business" },
+    { n: "(+82) 10-6797-5376", role: "Tech" },
+  ],
+  email: CONTACT_MAIL,
+  headquarters:
+    "No.302, 3F., 165, Yangsu-ro, Yangseo-myeon, Yangpyeong-gun, Gyeonggi-do, Republic of Korea",
+  seoulOffice:
+    "Taeho Business Center, 311, Hakdong-ro, Gangnam-gu, Seoul, Republic of Korea",
+} as const

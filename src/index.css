@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
+/* Class-based dark mode: match `html.dark` and descendants (Tailwind v4) */
+@custom-variant dark (&:where(.dark, .dark *));
 
-/* Logo wordmark — body copy stays on the default UI font */
+/* Bebas Neue: header wordmark only (see SiteHeader logo link) */
 .font-logo {
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 0.04em;
@@ -94,6 +95,6 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background font-sans text-foreground antialiased;
   }
 }
