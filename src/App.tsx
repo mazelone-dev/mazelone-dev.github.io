@@ -3,8 +3,10 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import { SiteLayout } from "@/components/site-layout"
 import { CareerPage } from "@/pages/CareerPage"
 import { CompanyPage } from "@/pages/CompanyPage"
+import { DocumentPlatformPage } from "@/pages/DocumentPlatformPage"
 import { HomePage } from "@/pages/HomePage"
 import { PlaceholderPage } from "@/pages/PlaceholderPage"
+import { ResearchPage } from "./pages/ResearchPage"
 
 export default function App() {
   return (
@@ -17,8 +19,13 @@ export default function App() {
           path="company"
           element={<Navigate to="/company/about" replace />}
         />
+        <Route
+          path="products/document-platform"
+          element={<DocumentPlatformPage />}
+        />
         <Route path="products/:slug" element={<PlaceholderPage />} />
         <Route path="solutions/:slug" element={<PlaceholderPage />} />
+        <Route path="research" element={<ResearchPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

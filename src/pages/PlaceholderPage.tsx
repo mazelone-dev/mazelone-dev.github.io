@@ -11,8 +11,12 @@ export function PlaceholderPage() {
   const title = segment
     .split("-")
     .map((w) => {
-      if (w.toLowerCase() === "ai") {
+      const lower = w.toLowerCase()
+      if (lower === "ai") {
         return "AI"
+      }
+      if (lower === "rag") {
+        return "RAG"
       }
       return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
     })

@@ -7,6 +7,7 @@ import {
   companyNav,
   CONTACT_MAIL,
   productNav,
+  researchHref,
   solutionNav,
 } from "@/lib/nav-config"
 
@@ -244,6 +245,17 @@ export function SiteHeader() {
               onPointerOpen={() => setOpenDesktopMenu("solution")}
               onPointerClose={() => setOpenDesktopMenu(null)}
             />
+            <Link
+              to={researchHref}
+              className={cn(
+                "rounded-md px-3 py-2 text-sm font-medium text-zinc-950 outline-none transition-colors hover:bg-zinc-100 hover:text-zinc-950 focus-visible:ring-2 focus-visible:ring-indigo-500/80 dark:text-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white",
+                location.pathname === researchHref &&
+                  "bg-zinc-100 text-zinc-950 dark:bg-zinc-800 dark:text-white",
+              )}
+              aria-current={location.pathname === researchHref ? "page" : undefined}
+            >
+              Research
+            </Link>
           </nav>
         </div>
 
@@ -285,6 +297,14 @@ export function SiteHeader() {
             <MobileNavSection title="Company" items={companyNav} />
             <MobileNavSection title="Product" items={productNav} />
             <MobileNavSection title="Solution" items={solutionNav} />
+            <div className="border-b border-zinc-200 py-3 last:border-b-0 dark:border-zinc-800">
+              <Link
+                to={researchHref}
+                className="block rounded-md px-3 py-2 text-sm font-medium text-zinc-950 hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-200 dark:hover:bg-zinc-800 dark:hover:text-white"
+              >
+                Research
+              </Link>
+            </div>
             <div className="pt-4">
               <Button
                 asChild

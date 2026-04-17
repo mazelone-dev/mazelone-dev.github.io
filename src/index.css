@@ -98,3 +98,48 @@
     @apply bg-background font-sans text-foreground antialiased;
   }
 }
+
+/* Document Platform architecture SVG — theme via CSS variables (see document-platform-architecture-figure.tsx) */
+.document-platform-architecture-figure {
+  --dp-canvas: #ffffff;
+  --dp-headline: #111827;
+  --dp-subtitle: #9ca3af;
+  --dp-muted: #9ca3af;
+  --dp-body: #374151;
+  --dp-tertiary: #6b7280;
+  --dp-faint: #d1d5db;
+  --dp-border-light: #e5e7eb;
+  --dp-native-fill: #f9fafb;
+  --dp-native-border: #374151;
+  --dp-line-main: #9ca3af;
+  --dp-line-sec: #d1d5db;
+  --dp-card-fill: #ffffff;
+  --dp-merge-bg: #111827;
+  --dp-merge-text: #ffffff;
+  --dp-merge-label: rgba(255, 255, 255, 0.4);
+  --dp-merge-sub: rgba(255, 255, 255, 0.45);
+  --dp-merge-divider: rgba(255, 255, 255, 0.1);
+  --dp-merge-inner: rgba(255, 255, 255, 0.07);
+}
+
+.dark .document-platform-architecture-figure {
+  --dp-canvas: transparent;
+  --dp-headline: #fafafa;
+  --dp-subtitle: rgba(255, 255, 255, 0.65);
+  --dp-muted: rgba(255, 255, 255, 0.6);
+  --dp-body: #fafafa;
+  --dp-tertiary: rgba(255, 255, 255, 0.78);
+  --dp-faint: rgba(255, 255, 255, 0.55);
+  --dp-border-light: rgba(255, 255, 255, 0.35);
+  --dp-native-fill: transparent;
+  --dp-native-border: rgba(255, 255, 255, 0.42);
+  --dp-line-main: #ffffff;
+  --dp-line-sec: rgba(255, 255, 255, 0.88);
+  --dp-card-fill: transparent;
+  --dp-merge-bg: #ffffff;
+  --dp-merge-text: #111827;
+  --dp-merge-label: rgba(17, 24, 39, 0.48);
+  --dp-merge-sub: rgba(17, 24, 39, 0.68);
+  --dp-merge-divider: rgba(17, 24, 39, 0.18);
+  --dp-merge-inner: rgba(17, 24, 39, 0.14);
+}

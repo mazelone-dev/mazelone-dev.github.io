@@ -2,9 +2,12 @@
 
 export const CONTACT_MAIL = "ask@mazelone.com" as const
 
-/** About: `/company/about#about-us` | `#history` — no `#career` here. Career page: `/company/career`. */
+/** Global Research hub — single page, no dropdown. */
+export const researchHref = "/research" as const
+
+/** About → `/company/about` (top of page). Page still exposes `#about-us` | `#history` for deep links. No `#career` here. Career: `/company/career`. */
 export const companyNav = [
-  { label: "About", href: "/company/about#about-us" },
+  { label: "About", href: "/company/about" },
   { label: "Career", href: "/company/career" },
 ] as const
 
@@ -20,9 +23,10 @@ export const solutionNav = [
   { label: "Enterprise", href: "/solutions/enterprise" },
   { label: "Public", href: "/solutions/public" },
   { label: "Education", href: "/solutions/education" },
-  { label: "Healthcare", href: "/solutions/healthcare" },
+  // Hidden from nav for now; `/solutions/healthcare` still works via App route.
+  // { label: "Healthcare", href: "/solutions/healthcare" },
   { label: "Manufacturing", href: "/solutions/manufacturing" },
-  { label: "Commerce", href: "/solutions/commerce" },
+  // { label: "Commerce", href: "/solutions/commerce" },
 ] as const
 
 export const footerContact = {
