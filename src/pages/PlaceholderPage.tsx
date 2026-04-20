@@ -18,6 +18,9 @@ export function PlaceholderPage() {
       if (lower === "rag") {
         return "RAG"
       }
+      if (lower === "docu") {
+        return "Document"
+      }
       return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
     })
     .join(" ")

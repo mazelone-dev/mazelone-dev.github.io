@@ -17,6 +17,7 @@ export const productNav = [
   { label: "MZO Chatbot", href: "/products/chatbot" },
   { label: "MZO Email Agent", href: "/products/email-agent" },
   { label: "MZO AI Translator", href: "/products/ai-translator" },
+  { label: "MZO Document Generator", href: "/products/docu-generator" },
 ] as const
 
 export const solutionNav = [

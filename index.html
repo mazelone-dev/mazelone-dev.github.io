@@ -6,10 +6,16 @@
         try {
           var k = "theme";
           var t = localStorage.getItem(k);
-          var dark =
-            t === "dark" ||
-            (t !== "light" &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          var dark;
+          if (t === "light") {
+            dark = false;
+          } else if (t === "dark") {
+            dark = true;
+          } else if (t === "system") {
+            dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          } else {
+            dark = true;
+          }
           document.documentElement.classList.toggle("dark", dark);
           document.documentElement.classList.toggle("light", !dark);
         } catch (_) {}
