@@ -1,7 +1,10 @@
 import * as React from "react"
+import { motion, useReducedMotion } from "motion/react"
 import { useLocation } from "react-router-dom"
 
 import { BackToHome } from "@/components/back-to-home"
+
+const ease = [0.16, 1, 0.3, 1] as const
 
 /** Milestones 2012–2025 (newest first). 2012–2022·2015·2017–2021 from `.dev/txt/20260417_1406.txt` + edits; 2023–2025 per latest copy. */
 const HISTORY_BY_YEAR = [
@@ -111,6 +114,14 @@ const HERO_SUB =
  */
 export function CompanyPage() {
   const { hash, pathname } = useLocation()
+  const reduce = useReducedMotion() ?? false
+
+  const inView = {
+    initial: reduce ? false : ({ opacity: 0, y: 18 } as const),
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.12 },
+    transition: { duration: reduce ? 0 : 0.65, ease },
+  } as const
 
   React.useLayoutEffect(() => {
     const id = hash.replace(/^#/, "")
@@ -130,23 +141,40 @@ export function CompanyPage() {
         className="w-full border-b border-border px-4 pb-16 pt-8 text-center sm:px-6 sm:pb-20 sm:pt-12 lg:px-8"
       >
         <div className="mx-auto max-w-5xl">
-          <h1
+          <motion.h1
             id="company-hero-heading"
+            initial={reduce ? false : { opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: reduce ? 0 : 0.85,
+              delay: reduce ? 0 : 0.12,
+              ease,
+            }}
             className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl"
           >
             {HERO_HEADLINE}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-lg text-muted-foreground sm:text-xl">
+          </motion.h1>
+          <motion.p
+            initial={reduce ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: reduce ? 0 : 0.7,
+              delay: reduce ? 0 : 0.28,
+              ease,
+            }}
+            className="mx-auto mt-4 max-w-2xl text-pretty text-lg text-muted-foreground sm:text-xl"
+          >
             {HERO_SUB}
-          </p>
+          </motion.p>
         </div>
       </section>
 
       <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-12 sm:px-6 lg:px-8">
-      <section
+      <motion.section
         id="about-us"
         aria-labelledby="about-us-heading"
         className="scroll-mt-24 pt-12"
+        {...inView}
       >
         <h2
           id="about-us-heading"
@@ -260,12 +288,13 @@ export function CompanyPage() {
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section
+      <motion.section
         id="history"
         aria-labelledby="history-heading"
         className="scroll-mt-24 pt-16"
+        {...inView}
       >
         <h2
           id="history-heading"
@@ -274,20 +303,32 @@ export function CompanyPage() {
           History
         </h2>
         <div className="mt-6 space-y-10">
-          {HISTORY_BY_YEAR.map(({ year, items }) => (
-            <div key={year}>
+          {HISTORY_BY_YEAR.map(({ year, items }, idx) => (
+            <motion.div
+              key={year}
+              initial={reduce ? false : { opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{
+                duration: reduce ? 0 : 0.5,
+                delay: reduce ? 0 : idx * 0.06,
+                ease,
+              }}
+            >
               <h3 className="text-base font-semibold text-foreground">{year}</h3>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-muted-foreground">
                 {items.map((text, i) => (
                   <li key={`${year}-${i}`}>{text}</li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      <BackToHome />
+      <motion.div {...inView}>
+        <BackToHome />
+      </motion.div>
       </div>
     </main>
   )

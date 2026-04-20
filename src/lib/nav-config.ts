@@ -12,9 +12,9 @@ export const companyNav = [
 ] as const
 
 export const productNav = [
-  { label: "MZO Document Platform", href: "/products/document-platform" },
+  { label: "MZO Data Platform", href: "/products/data-platform" },
   { label: "MZO RAG Platform", href: "/products/rag-platform" },
-  { label: "MZO Chatbot", href: "/products/chatbot" },
+  { label: "MZO Chat Platform", href: "/products/chat-platform" },
   { label: "MZO Email Agent", href: "/products/email-agent" },
   { label: "MZO AI Translator", href: "/products/ai-translator" },
   { label: "MZO Document Generator", href: "/products/docu-generator" },

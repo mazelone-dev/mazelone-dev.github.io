@@ -8,7 +8,7 @@ import {
   CONTACT_MAIL,
   productNav,
   researchHref,
-  solutionNav,
+  // solutionNav, // re-enable with Solution dropdown + mobile section below
 } from "@/lib/nav-config"
 
 function ChevronDown({ className }: { className?: string }) {
@@ -237,6 +237,7 @@ export function SiteHeader() {
               onPointerOpen={() => setOpenDesktopMenu("product")}
               onPointerClose={() => setOpenDesktopMenu(null)}
             />
+            {/* Solution menu — hidden for now; restore `solutionNav` import + block below
             <DesktopDropdown
               id="nav-solution"
               label="Solution"
@@ -245,6 +246,7 @@ export function SiteHeader() {
               onPointerOpen={() => setOpenDesktopMenu("solution")}
               onPointerClose={() => setOpenDesktopMenu(null)}
             />
+            */}
             <Link
               to={researchHref}
               className={cn(
@@ -296,7 +298,7 @@ export function SiteHeader() {
           <div className="mx-auto max-h-[min(70vh,calc(100dvh-3.5rem))] max-w-6xl overflow-y-auto px-4 pb-6 sm:px-6">
             <MobileNavSection title="Company" items={companyNav} />
             <MobileNavSection title="Product" items={productNav} />
-            <MobileNavSection title="Solution" items={solutionNav} />
+            {/* <MobileNavSection title="Solution" items={solutionNav} /> */}
             <div className="border-b border-zinc-200 py-3 last:border-b-0 dark:border-zinc-800">
               <Link
                 to={researchHref}

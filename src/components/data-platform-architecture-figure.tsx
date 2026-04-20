@@ -1,10 +1,10 @@
 /**
- * MZO Document Platform architecture diagram (SVG).
+ * MZO Data Platform architecture diagram (SVG).
  * Ported from `.dev/code/20260417_1647_Document_Platform/src/app/App.tsx`.
  * Copy aligned with `.dev/txt/20260417_1616.txt` (format breadth + native-first + strong OCR).
  */
-export function DocumentPlatformArchitectureFigure() {
-  /** Colors from `.document-platform-architecture-figure` in `index.css` (light + `.dark`). */
+export function DataPlatformArchitectureFigure() {
+  /** Colors from `.data-platform-architecture-figure` in `index.css` (light + `.dark`). */
   const dp = {
     canvas: "var(--dp-canvas)",
     headline: "var(--dp-headline)",
@@ -105,16 +105,16 @@ export function DocumentPlatformArchitectureFigure() {
   const mergeTags = ['sections', 'paragraphs', 'tables', 'key fields', 'reading order', 'metadata'];
 
   return (
-    <div className="document-platform-architecture-figure w-full bg-background">
+    <div className="data-platform-architecture-figure w-full bg-background">
       <svg
         viewBox={`0 0 ${VB_W} ${VB_H}`}
         className="mx-auto block h-auto w-full max-w-[960px]"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
-        aria-labelledby="doc-platform-arch-title"
+        aria-labelledby="data-platform-arch-title"
       >
-        <title id="doc-platform-arch-title">
-          MZO Document Platform: diverse inputs flow through native parsing or strong
+        <title id="data-platform-arch-title">
+          MZO Data Platform: diverse inputs flow through native parsing or strong
           OCR into structured document representation, then outputs including JSON,
           Markdown, search index, RAG and AI context, and automation workflows.
           One platform: the right extraction path for each format.

@@ -99,8 +99,8 @@
   }
 }
 
-/* Document Platform architecture SVG — theme via CSS variables (see document-platform-architecture-figure.tsx) */
-.document-platform-architecture-figure {
+/* Data Platform architecture SVG — theme via CSS variables (see data-platform-architecture-figure.tsx) */
+.data-platform-architecture-figure {
   --dp-canvas: #ffffff;
   --dp-headline: #111827;
   --dp-subtitle: #9ca3af;
@@ -122,7 +122,7 @@
   --dp-merge-inner: rgba(255, 255, 255, 0.07);
 }
 
-.dark .document-platform-architecture-figure {
+.dark .data-platform-architecture-figure {
   --dp-canvas: transparent;
   --dp-headline: #fafafa;
   --dp-subtitle: rgba(255, 255, 255, 0.65);

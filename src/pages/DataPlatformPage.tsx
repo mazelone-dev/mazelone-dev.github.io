@@ -3,16 +3,16 @@ import { motion, useReducedMotion } from "motion/react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { BackToHome } from "@/components/back-to-home"
-import { DocumentPlatformArchitectureFigure } from "@/components/document-platform-architecture-figure"
+import { DataPlatformArchitectureFigure } from "@/components/data-platform-architecture-figure"
 import { CONTACT_MAIL } from "@/lib/nav-config"
 
 const ease = [0.16, 1, 0.3, 1] as const
 
 /**
- * MZO Document Platform — `/products/document-platform`
- * @see `.dev/md/20260417_1616_products-document-platform-planning.md`
+ * MZO Data Platform — `/products/data-platform`
+ * @see `.dev/md/20260420_1416_products-data-platform-planning.md`
  */
-export function DocumentPlatformPage() {
+export function DataPlatformPage() {
   const reduce = useReducedMotion() ?? false
 
   const inView = {
@@ -48,7 +48,7 @@ export function DocumentPlatformPage() {
             }}
             className="mt-3 text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl"
           >
-            MZO Document Platform
+            MZO Data Platform
           </motion.h1>
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 12 }}
@@ -106,10 +106,10 @@ export function DocumentPlatformPage() {
       >
         <div className="mx-auto max-w-6xl">
           <h2 id="parse-anything-heading" className="sr-only">
-            MZO Document Platform — processing architecture diagram
+            MZO Data Platform — processing architecture diagram
           </h2>
           <figure className="mt-8 overflow-hidden rounded-lg border border-border shadow-sm">
-            <DocumentPlatformArchitectureFigure />
+            <DataPlatformArchitectureFigure />
           </figure>
         </div>
       </motion.section>

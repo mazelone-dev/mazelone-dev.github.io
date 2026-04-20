@@ -3,7 +3,8 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import { SiteLayout } from "@/components/site-layout"
 import { CareerPage } from "@/pages/CareerPage"
 import { CompanyPage } from "@/pages/CompanyPage"
-import { DocumentPlatformPage } from "@/pages/DocumentPlatformPage"
+import { DataPlatformPage } from "@/pages/DataPlatformPage"
+import { ChatPlatformPage } from "@/pages/ChatPlatformPage"
 import { RagPlatformPage } from "@/pages/RagPlatformPage"
 import { HomePage } from "@/pages/HomePage"
 import { PlaceholderPage } from "@/pages/PlaceholderPage"
@@ -21,10 +22,19 @@ export default function App() {
           element={<Navigate to="/company/about" replace />}
         />
         <Route
+          path="products/data-platform"
+          element={<DataPlatformPage />}
+        />
+        <Route
           path="products/document-platform"
-          element={<DocumentPlatformPage />}
+          element={<Navigate to="/products/data-platform" replace />}
         />
         <Route path="products/rag-platform" element={<RagPlatformPage />} />
+        <Route path="products/chat-platform" element={<ChatPlatformPage />} />
+        <Route
+          path="products/chatbot"
+          element={<Navigate to="/products/chat-platform" replace />}
+        />
         <Route path="products/:slug" element={<PlaceholderPage />} />
         <Route path="solutions/:slug" element={<PlaceholderPage />} />
         <Route path="research" element={<ResearchPage />} />

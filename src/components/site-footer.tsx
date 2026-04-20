@@ -7,7 +7,7 @@ import {
   footerContact,
   productNav,
   researchHref,
-  solutionNav,
+  // solutionNav, // re-enable with Solution column below
 } from "@/lib/nav-config"
 import { phoneToTelHref } from "@/lib/utils"
 
@@ -48,7 +48,7 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 gap-10 gap-y-10 md:grid-cols-2 lg:grid-cols-5">
           <FooterColumn title="Company" items={companyNav} />
           <FooterColumn title="Products" items={productNav} />
-          <FooterColumn title="Solution" items={solutionNav} />
+          {/* <FooterColumn title="Solution" items={solutionNav} /> */}
           <div>
             <h2 className="mb-3 text-sm font-semibold tracking-wide text-foreground">
               <Link

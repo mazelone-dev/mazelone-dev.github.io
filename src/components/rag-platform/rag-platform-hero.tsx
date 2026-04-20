@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from "motion/react"
 const ease = [0.16, 1, 0.3, 1] as const
 
 /**
- * Hero — same pattern as `DocumentPlatformPage`: eyebrow **Products**, H1 **MZO RAG Platform**, lead paragraph.
+ * Hero — same pattern as `DataPlatformPage`: eyebrow **Products**, H1 **MZO RAG Platform**, lead paragraph.
  */
 export function RagPlatformHero() {
   const reduceMotion = useReducedMotion() ?? false
