@@ -4,13 +4,14 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { BackToHome } from "@/components/back-to-home"
 import { DataPlatformArchitectureFigure } from "@/components/data-platform-architecture-figure"
+import { DataPlatformDemo } from "@/components/data-platform/data-platform-demo"
 import { CONTACT_MAIL } from "@/lib/nav-config"
 
 const ease = [0.16, 1, 0.3, 1] as const
 
 /**
  * MZO Data Platform — `/products/data-platform`
- * @see `.dev/md/20260420_1416_products-data-platform-planning.md`
+ * @see `.dev/md/20260421_1416_products-data-platform-planning.md`
  */
 export function DataPlatformPage() {
   const reduce = useReducedMotion() ?? false
@@ -113,6 +114,10 @@ export function DataPlatformPage() {
           </figure>
         </div>
       </motion.section>
+
+      <section className="w-full border-b border-border bg-muted/30">
+        <DataPlatformDemo />
+      </section>
 
       <div className="mx-auto w-full max-w-5xl flex-1 px-4 py-14 sm:px-6 lg:px-8">
         {/* Differentiators */}

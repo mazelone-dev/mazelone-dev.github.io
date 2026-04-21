@@ -5,6 +5,9 @@ import { CareerPage } from "@/pages/CareerPage"
 import { CompanyPage } from "@/pages/CompanyPage"
 import { DataPlatformPage } from "@/pages/DataPlatformPage"
 import { ChatPlatformPage } from "@/pages/ChatPlatformPage"
+import { AiTranslatorPage } from "@/pages/AiTranslatorPage"
+import { DocumentGeneratorPage } from "@/pages/DocumentGeneratorPage"
+import { EmailAgentPage } from "@/pages/EmailAgentPage"
 import { RagPlatformPage } from "@/pages/RagPlatformPage"
 import { HomePage } from "@/pages/HomePage"
 import { PlaceholderPage } from "@/pages/PlaceholderPage"
@@ -31,6 +34,12 @@ export default function App() {
         />
         <Route path="products/rag-platform" element={<RagPlatformPage />} />
         <Route path="products/chat-platform" element={<ChatPlatformPage />} />
+        <Route path="products/email-agent" element={<EmailAgentPage />} />
+        <Route path="products/ai-translator" element={<AiTranslatorPage />} />
+        <Route
+          path="products/docu-generator"
+          element={<DocumentGeneratorPage />}
+        />
         <Route
           path="products/chatbot"
           element={<Navigate to="/products/chat-platform" replace />}

@@ -31,14 +31,10 @@ export const solutionNav = [
 ] as const
 
 export const footerContact = {
-  tel: "(+82) 2-555-0272",
-  phones: [
-    { n: "(+82) 10-5260-4172", role: "Business" },
-    { n: "(+82) 10-6797-5376", role: "Tech" },
-  ],
+  phones: [{ n: "(+82) 10-5260-4172", role: "Business" }] as const,
   email: CONTACT_MAIL,
   headquarters:
     "No.302, 3F., 165, Yangsu-ro, Yangseo-myeon, Yangpyeong-gun, Gyeonggi-do, Republic of Korea",
   seoulOffice:
-    "Taeho Business Center, 311, Hakdong-ro, Gangnam-gu, Seoul, Republic of Korea",
+    "4th Floor, 161 Hakdong-ro, Gangnam District, Seoul, South Korea",
 } as const

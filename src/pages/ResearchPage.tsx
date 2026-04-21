@@ -1,6 +1,5 @@
 import * as React from "react"
 
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { CONTACT_MAIL } from "@/lib/nav-config"
 import { cn } from "@/lib/utils"
@@ -210,10 +209,6 @@ export function ResearchPage() {
   const [filter, setFilter] = React.useState<FilterTab>("all")
   const [sort, setSort] = React.useState<SortKey>("date-desc")
 
-  React.useEffect(() => {
-    document.title = "Research | Mazelone"
-  }, [])
-
   const filtered =
     filter === "all"
       ? RESEARCH_ITEMS
@@ -260,9 +255,6 @@ export function ResearchPage() {
           </div>
 
           <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
-            <Button type="button" variant="outline" size="sm" disabled title="More filters coming soon">
-              Filter
-            </Button>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span className="hidden sm:inline">Sort</span>
               <ResearchSortMenu value={sort} onChange={setSort} />

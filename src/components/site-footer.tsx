@@ -6,7 +6,7 @@ import {
   CONTACT_MAIL,
   footerContact,
   productNav,
-  researchHref,
+  // researchHref, // re-enable with Research footer link below
   // solutionNav, // re-enable with Solution column below
 } from "@/lib/nav-config"
 import { phoneToTelHref } from "@/lib/utils"
@@ -43,12 +43,13 @@ export function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-border bg-muted/30">
+    <footer id="site-footer" className="border-t border-border bg-muted/30">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 gap-y-10 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-10 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
           <FooterColumn title="Company" items={companyNav} />
           <FooterColumn title="Products" items={productNav} />
           {/* <FooterColumn title="Solution" items={solutionNav} /> */}
+          {/* Research — temporarily hidden from footer; `/research` route remains.
           <div>
             <h2 className="mb-3 text-sm font-semibold tracking-wide text-foreground">
               <Link
@@ -59,6 +60,7 @@ export function SiteFooter() {
               </Link>
             </h2>
           </div>
+          */}
 
           <div>
             <h2 className="mb-3 text-sm font-semibold tracking-wide text-foreground">
@@ -66,21 +68,10 @@ export function SiteFooter() {
             </h2>
             <dl className="space-y-3 text-sm text-muted-foreground">
               <div>
-                <dt className="font-medium text-foreground/90">Tel</dt>
-                <dd>
-                  <a
-                    href={phoneToTelHref(footerContact.tel)}
-                    className="hover:text-foreground"
-                  >
-                    {footerContact.tel}
-                  </a>
-                </dd>
-              </div>
-              <div>
                 <dt className="font-medium text-foreground/90">Phone</dt>
-                <dd className="space-y-1">
+                <dd>
                   {footerContact.phones.map((p) => (
-                    <div key={p.n}>
+                    <span key={p.n}>
                       <a
                         href={phoneToTelHref(p.n)}
                         className="hover:text-foreground"
@@ -88,7 +79,7 @@ export function SiteFooter() {
                         {p.n}
                       </a>{" "}
                       <span className="text-muted-foreground">({p.role})</span>
-                    </div>
+                    </span>
                   ))}
                 </dd>
               </div>
@@ -103,13 +94,25 @@ export function SiteFooter() {
                   </a>
                 </dd>
               </div>
+            </dl>
+          </div>
+
+          <div>
+            <h2 className="mb-3 text-sm font-semibold tracking-wide text-foreground">
+              Locations
+            </h2>
+            <dl className="space-y-4 text-sm text-muted-foreground">
               <div>
                 <dt className="font-medium text-foreground/90">Headquarters</dt>
-                <dd className="leading-relaxed">{footerContact.headquarters}</dd>
+                <dd className="mt-1 leading-relaxed">
+                  {footerContact.headquarters}
+                </dd>
               </div>
               <div>
-                <dt className="font-medium text-foreground/90">Seoul Office</dt>
-                <dd className="leading-relaxed">{footerContact.seoulOffice}</dd>
+                <dt className="font-medium text-foreground/90">AI Lab</dt>
+                <dd className="mt-1 leading-relaxed">
+                  {footerContact.seoulOffice}
+                </dd>
               </div>
             </dl>
           </div>

@@ -6,100 +6,94 @@ import { BackToHome } from "@/components/back-to-home"
 
 const ease = [0.16, 1, 0.3, 1] as const
 
-/** Milestones 2012–2025 (newest first). 2012–2022·2015·2017–2021 from `.dev/txt/20260417_1406.txt` + edits; 2023–2025 per latest copy. */
+/** Milestones (newest first). Sync with `.dev/md/20260417_1405_company-menu-planning-and-content.md` §6. */
 const HISTORY_BY_YEAR = [
+  {
+    year: "2026",
+    items: [
+      "Mar 2026–Present — Built an AI-powered item database for KODATA.",
+    ],
+  },
   {
     year: "2025",
     items: [
-      "Korea Institute of Industrial Technology, AOAI-based Small Business Support Service",
-      "Korea Institute of Industrial Technology, AOAI-based Data Analysis Service",
-      "Korean Register, DocuAnalyzer Delivery",
-      "Patent Office, RAG-based Specialized Search System (PoC)",
-      "Gangbuk-gu Office, Data Analysis AOAI Service",
-      "Kangwon National University, Data Analysis Service",
+      "Dec 2025 — Delivered Docu-Analyzer to the Korea Nuclear Environment Corporation.",
+      "Nov 2025–Dec 2025 — Built an Azure OpenAI-based plant catalog service for the KIST Natural Products Research Institute.",
+      "Nov 2025 — Built a RAG system for the Patent Research Institute.",
+      "Sep 2025–Nov 2025 — Built an Azure OpenAI intermediary service for Korea Credit Data / Innovation Finance.",
+      "Sep 2025 — Delivered an on-device translator for the Korean National Police Agency (pilot project).",
+      "Jul 2025–Dec 2025 — Performed the 2nd-phase enhancement of the Korean Register portal.",
     ],
   },
   {
     year: "2024",
     items: [
-      "Korea Telecom, GPT-based AICC Development",
-      "LG Electronics, Customer Voice LLM Development",
-      "Korean Register, Generative AI Portal implementation",
-      "Microsoft Azure OpenAI-based AI Services Development",
+      "Dec 2024–Jan 2025 — Developed a private / enterprise LLM for LG Electronics.",
+      "Jun 2024–Oct 2024 — Developed multiple services based on Microsoft Azure OpenAI.",
     ],
   },
   {
     year: "2023",
     items: [
-      "Orchestrator for Generative AI",
-      "Microsoft Azure OpenAI ChatGPT Orchestrator Development",
-      "Multiple Generative AI Proof-of-Concept Projects",
+      "Nov 2023–Present — Developed a Microsoft Azure OpenAI-based ChatGPT Orchestrator and carried out multiple PoCs (Proofs of Concept).",
     ],
   },
   {
     year: "2022",
     items: [
-      "Korea Food for the Hungry International, FMS (Field Management Systems)",
-      "Korea Food for the Hungry International, Billing Automation System",
+      "Sep 2022–2023 — Built a claims automation service for Korea Food for the Hungry International.",
     ],
   },
   {
     year: "2021",
     items: [
-      "Kia EV Service Platform",
-      "Ananti, Vendor Portal Service",
-      "Wonkwang University, Upgrade Rehabilitation",
-      "NC Dinos, Smart Baseball Park with Microsoft",
-      "TYM, Vendor Portal Service with MS Dynamics 365 ERP",
+      "Sep 2021–Jan 2022 — Built the NC Dinos Smart Stadium (MS Chatbot, Teams, Cognitive Services including face recognition).",
+      "Mar 2021 — Built the Dongyang Moolsan vendor portal and MS Dynamics 365 ERP (procurement, sales, vendor management), and also the Ananti vendor portal.",
+      "Mar 2021 — Built a Power BI system for Korea Food for the Hungry International (SISS, Power BI).",
     ],
   },
   {
     year: "2020",
     items: [
-      "Korea Food for the Hungry International, Datawarehouse (SSIS, Power BI)",
-      "Korea Food for the Hungry International, Donation Platform",
-      "Lotte Groupware MOIN, Mobile Groupware",
-      "Reverse Commerce RTMed",
-      "Workplace RTMed",
-      'Yonsei Severance, College of Nursing "Self Management for Parkinson"',
-      'Yonsei Severance, College of Nursing "Self Management for HIV"',
+      "Sep 2020–Jan 2021 — Provided an app service for self-management of Parkinson’s patients for the Yonsei Severance College of Nursing.",
+      "Apr 2020 — Provided an app service for self-management of HIV patients for the Yonsei Severance College of Nursing.",
+      "Apr 2020 — Developed the interface for Haptic LaSor at Yonsei Severance (Galaxy Watch with 12 sensors).",
     ],
   },
   {
     year: "2019",
     items: [
-      "Ananti Microsoft Dynamics 365 for Procurement, Sales, and Inventory",
-      "Yonsei Severance, Haptic LaSor",
-      "Wonkwang University, Upgrade Rehabilitation",
+      "Jan 2019–Apr 2019 — Advanced the Rehab system for Wonkwang University / Soonchunhyang University / Paik Hospital.",
+      "2019 — Conducted a clinical project for Moyamoya disease patients with the Yonsei Severance College of Nursing.",
     ],
   },
   {
     year: "2018",
     items: [
-      'Yonsei Severance, College of Nursing "Self Management for Moya Moya Disease"',
-      "Wonkwang University, Rehabilitation",
+      "Jan 2018–Dec 2018 — Conducted a clinical study on 순간 stress measurement with the Gyeonggi Provincial Police Agency and the Yonsei Severance College of Nursing.",
+      "Jan 2018–Dec 2018 — Worked on Rehab (cardiac rehabilitation) for Wonkwang University Hospital.",
+      "2018 — Worked on PHR (Personal Health Record) for Konyang University Hospital.",
     ],
   },
   {
     year: "2017",
     items: [
-      "Konyang University, PHR (Personal Health Record)",
-      "Whinny World of Korea Horse Racing Association, Customer Portal",
+      "Jun 2017 — Built the KRA Winny World customer portal (web/app), including location-tracking admission tickets and horse management.",
+      "Apr 2017–Dec 2017 — Worked on SEMS (Smart Emergency Medical Services) (integrated control service, e-Triage, etc.; project under the Fire Safety Technology R&D Program / Ministry of the Interior and Safety).",
     ],
   },
   {
     year: "2015",
     items: [
-      "National Administration and Safety, SEMS (Smart Emergency Medical Services)",
-      "NIA (National Information Society Agency), Global Healthcare Verification for Wearable Device",
-      "NIPA (National IT Industry Promotion Agency), NFC Smart-Tag Emergency Response Medical Safety Network (HL7)",
+      "Jun 2015–Jun 2018 — Participated in the “Global Healthcare Validation (Wearable Devices)” project (NIA / Ministry of Science, ICT and Future Planning).",
+      "Oct 2015–Dec 2015 — Participated in the “NFC Smart Tag-based Emergency Response Medical Safety Network (HL7)” project (NIPA / Ministry of Science, ICT and Future Planning).",
+      "Jan 2015–Mar 2015 — Worked on a PHR pilot service (Yonsei Severance, Seodaemun-gu Office, Mapo-gu Office, Eunpyeong-gu Office, etc.; Hyundai Motor Chung Mong-Koo Foundation).",
     ],
   },
   {
-    year: "2012",
+    year: "2014",
     items: [
-      "Saudi Aramco CRM / Bayer Crop Science (MS Dynamics CRM), Sales Consulting",
-      "Samsung Electronics Promotion System (CRM, Point Management System Consulting)",
+      "Apr 2014–Dec 2015 — Worked on Saudi Aramco CRM, Bayer CropScience (MS Dynamics CRM), and the Samsung Electronics promotion system, including CRM and point-management system consulting.",
     ],
   },
 ] as const

@@ -7,7 +7,7 @@ import {
   companyNav,
   CONTACT_MAIL,
   productNav,
-  researchHref,
+  // researchHref, // re-enable with Research desktop + mobile links below (`/research` route stays in App.tsx)
   // solutionNav, // re-enable with Solution dropdown + mobile section below
 } from "@/lib/nav-config"
 
@@ -247,6 +247,7 @@ export function SiteHeader() {
               onPointerClose={() => setOpenDesktopMenu(null)}
             />
             */}
+            {/* Research — temporarily hidden from primary nav; direct URL `/research` still works.
             <Link
               to={researchHref}
               className={cn(
@@ -258,6 +259,7 @@ export function SiteHeader() {
             >
               Research
             </Link>
+            */}
           </nav>
         </div>
 
@@ -299,6 +301,7 @@ export function SiteHeader() {
             <MobileNavSection title="Company" items={companyNav} />
             <MobileNavSection title="Product" items={productNav} />
             {/* <MobileNavSection title="Solution" items={solutionNav} /> */}
+            {/* Research — temporarily hidden from mobile nav; see desktop block comment.
             <div className="border-b border-zinc-200 py-3 last:border-b-0 dark:border-zinc-800">
               <Link
                 to={researchHref}
@@ -307,6 +310,7 @@ export function SiteHeader() {
                 Research
               </Link>
             </div>
+            */}
             <div className="pt-4">
               <Button
                 asChild

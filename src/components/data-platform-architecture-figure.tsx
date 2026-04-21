@@ -17,7 +17,6 @@ export function DataPlatformArchitectureFigure() {
     nativeFill: "var(--dp-native-fill)",
     nativeBorder: "var(--dp-native-border)",
     lineMain: "var(--dp-line-main)",
-    lineSec: "var(--dp-line-sec)",
     cardFill: "var(--dp-card-fill)",
     mergeBg: "var(--dp-merge-bg)",
     mergeText: "var(--dp-merge-text)",
@@ -28,6 +27,8 @@ export function DataPlatformArchitectureFigure() {
   } as const;
 
   const font = `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+  /** Match processing-block borders; reads clearly when the SVG scales down. */
+  const connectorSw = 1.5;
 
   // ─── Card Geometry ─────────────────────────────────────────────────────────
   const INP_H   = 34;
@@ -99,7 +100,7 @@ export function DataPlatformArchitectureFigure() {
 
   // ─── ViewBox ──────────────────────────────────────────────────────────────
   const VB_W = 960;
-  const VB_H = ocrBottom + 42; // ≈ 456
+  const VB_H = ocrBottom + 24; // padding below last input row
 
   // ─── Merge feature tags ───────────────────────────────────────────────────
   const mergeTags = ['sections', 'paragraphs', 'tables', 'key fields', 'reading order', 'metadata'];
@@ -121,31 +122,21 @@ export function DataPlatformArchitectureFigure() {
         </title>
         <defs>
           {/* Arrow markers */}
-          <marker id="arrMain" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
+          <marker id="arrMain" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
             <polyline
-              points="0.5,1 5.5,3.5 0.5,6"
+              points="0.5,1 6,4 0.5,7"
               stroke={dp.lineMain}
-              strokeWidth="1"
+              strokeWidth={connectorSw}
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
           </marker>
-          <marker id="arrSec" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
+          <marker id="arrOut" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
             <polyline
-              points="0.5,1 5.5,3.5 0.5,6"
-              stroke={dp.lineSec}
-              strokeWidth="1"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </marker>
-          <marker id="arrOut" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
-            <polyline
-              points="0.5,1 5.5,3.5 0.5,6"
+              points="0.5,1 6,4 0.5,7"
               stroke={dp.lineMain}
-              strokeWidth="1"
+              strokeWidth={connectorSw}
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -206,20 +197,20 @@ export function DataPlatformArchitectureFigure() {
           <line key={`nb-${i}`}
             x1={INP_RIGHT} y1={cy}
             x2={BUS_X}     y2={cy}
-            stroke={dp.lineMain} strokeWidth="1"
+            stroke={dp.lineMain} strokeWidth={connectorSw}
           />
         ))}
         {/* Native vertical bus */}
         <line
           x1={BUS_X} y1={nativeCYs[0]}
           x2={BUS_X} y2={nativeCYs[nativeCYs.length - 1]}
-          stroke={dp.lineMain} strokeWidth="1"
+          stroke={dp.lineMain} strokeWidth={connectorSw}
         />
         {/* Native bus → Native Parsing block */}
         <line
           x1={BUS_X}  y1={nativeCentroid}
           x2={PROC_X} y2={nativeCentroid}
-          stroke={dp.lineMain} strokeWidth="1"
+          stroke={dp.lineMain} strokeWidth={connectorSw}
           markerEnd="url(#arrMain)"
         />
 
@@ -228,38 +219,38 @@ export function DataPlatformArchitectureFigure() {
           <line key={`ob-${i}`}
             x1={INP_RIGHT} y1={cy}
             x2={BUS_X}     y2={cy}
-            stroke={dp.lineSec} strokeWidth="1"
+            stroke={dp.lineMain} strokeWidth={connectorSw}
           />
         ))}
         {/* OCR vertical bus */}
         <line
           x1={BUS_X} y1={ocrCYs[0]}
           x2={BUS_X} y2={ocrCYs[ocrCYs.length - 1]}
-          stroke={dp.lineSec} strokeWidth="1"
+          stroke={dp.lineMain} strokeWidth={connectorSw}
         />
         {/* OCR bus → OCR block */}
         <line
           x1={BUS_X}  y1={ocrCentroid}
           x2={PROC_X} y2={ocrCentroid}
-          stroke={dp.lineSec} strokeWidth="1"
-          markerEnd="url(#arrSec)"
+          stroke={dp.lineMain} strokeWidth={connectorSw}
+          markerEnd="url(#arrMain)"
         />
 
         {/* — Native Parsing → convergence point */}
         <path
           d={`M ${PROC_RIGHT},${nativeCentroid} H ${CONV_X} V ${CENTER_Y}`}
-          stroke={dp.lineMain} strokeWidth="1" fill="none"
+          stroke={dp.lineMain} strokeWidth={connectorSw} fill="none"
         />
         {/* — OCR → convergence point */}
         <path
           d={`M ${PROC_RIGHT},${ocrCentroid} H ${CONV_X} V ${CENTER_Y}`}
-          stroke={dp.lineSec} strokeWidth="1" fill="none"
+          stroke={dp.lineMain} strokeWidth={connectorSw} fill="none"
         />
         {/* — Convergence → Merge block */}
         <line
           x1={CONV_X}   y1={CENTER_Y}
           x2={MERGE_X}  y2={CENTER_Y}
-          stroke={dp.lineMain} strokeWidth="1"
+          stroke={dp.lineMain} strokeWidth={connectorSw}
           markerEnd="url(#arrMain)"
         />
 
@@ -267,20 +258,20 @@ export function DataPlatformArchitectureFigure() {
         <line
           x1={MERGE_RIGHT} y1={CENTER_Y}
           x2={FAN_X}       y2={CENTER_Y}
-          stroke={dp.lineMain} strokeWidth="1"
+          stroke={dp.lineMain} strokeWidth={connectorSw}
         />
         {/* Fan vertical bus */}
         <line
           x1={FAN_X} y1={outCYs[0]}
           x2={FAN_X} y2={outCYs[outCYs.length - 1]}
-          stroke={dp.lineMain} strokeWidth="1"
+          stroke={dp.lineMain} strokeWidth={connectorSw}
         />
         {/* Fan branches → output cards */}
         {outCYs.map((cy, i) => (
           <line key={`fan-${i}`}
             x1={FAN_X} y1={cy}
             x2={OUT_X} y2={cy}
-            stroke={dp.lineMain} strokeWidth="1"
+            stroke={dp.lineMain} strokeWidth={connectorSw}
             markerEnd="url(#arrOut)"
           />
         ))}
@@ -332,31 +323,19 @@ export function DataPlatformArchitectureFigure() {
             <rect
               x={INP_X} y={ocrYs[i]}
               width={INP_W} height={INP_H} rx={INP_RX}
-              fill={dp.cardFill} stroke={dp.faint} strokeWidth="1"
-              strokeDasharray="4,2.5"
+              fill={dp.cardFill} stroke={dp.borderLight} strokeWidth="1"
             />
             <text
               x={INP_X + INP_W / 2}
               y={ocrYs[i] + INP_H / 2 + 4}
               textAnchor="middle"
-              fontSize="10.5" fontWeight="500" fill={dp.tertiary}
+              fontSize="10.5" fontWeight="500" fill={dp.body}
               fontFamily={font}
             >
               {fmt}
             </text>
           </g>
         ))}
-
-        {/* Bottom caption under inputs */}
-        <text
-          x={INP_X + INP_W / 2}
-          y={ocrBottom + 16}
-          textAnchor="middle"
-          fontSize="8.5" fill={dp.muted}
-          fontFamily={font}
-        >
-          Office, web, HWPs, PDFs, images
-        </text>
 
         {/* ═══════════════════════════════════════════════════
             NATIVE PARSING BLOCK
@@ -406,26 +385,25 @@ export function DataPlatformArchitectureFigure() {
         ))}
 
         {/* ═══════════════════════════════════════════════════
-            OCR BLOCK  (visually secondary)
+            OCR BLOCK  (same border / type scale as Native Parsing)
         ═══════════════════════════════════════════════════ */}
         <rect
           x={PROC_X} y={OCR_PROC_Y}
           width={PROC_W} height={OCR_PROC_H} rx={7}
-          fill={dp.cardFill} stroke={dp.faint} strokeWidth="1"
-          strokeDasharray="4,2.5"
+          fill={dp.nativeFill} stroke={dp.nativeBorder} strokeWidth="1.5"
         />
         <text
           x={PROC_X + PROC_W / 2}
-          y={OCR_PROC_Y + 24}
+          y={OCR_PROC_Y + 26}
           textAnchor="middle"
-          fontSize="11.5" fontWeight="600" fill={dp.tertiary}
+          fontSize="12.5" fontWeight="700" fill={dp.headline}
           fontFamily={font}
         >
           Strong OCR when needed
         </text>
         <text
           x={PROC_X + PROC_W / 2}
-          y={OCR_PROC_Y + 40}
+          y={OCR_PROC_Y + 42}
           textAnchor="middle"
           fontSize="9" fill={dp.muted}
           fontFamily={font}
@@ -433,17 +411,17 @@ export function DataPlatformArchitectureFigure() {
           Scans, PDFs, and image-based inputs
         </text>
         <line
-          x1={PROC_X + 14} y1={OCR_PROC_Y + 50}
-          x2={PROC_RIGHT - 14} y2={OCR_PROC_Y + 50}
+          x1={PROC_X + 14} y1={OCR_PROC_Y + 53}
+          x2={PROC_RIGHT - 14} y2={OCR_PROC_Y + 53}
           stroke={dp.borderLight} strokeWidth="1"
         />
         {['text recognition · layout analysis', 'table detection · multilingual'].map((tag, i) => (
           <text
             key={`ot-${i}`}
             x={PROC_X + PROC_W / 2}
-            y={OCR_PROC_Y + 66 + i * 17}
+            y={OCR_PROC_Y + 70 + i * 18}
             textAnchor="middle"
-            fontSize="9" fill={dp.muted}
+            fontSize="9.5" fill={dp.tertiary}
             fontFamily={font}
           >
             {tag}
