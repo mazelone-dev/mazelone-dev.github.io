@@ -34,7 +34,7 @@ export const footerContact = {
   phones: [{ n: "(+82) 10-5260-4172", role: "Business" }] as const,
   email: CONTACT_MAIL,
   headquarters:
-    "No.302, 3F., 165, Yangsu-ro, Yangseo-myeon, Yangpyeong-gun, Gyeonggi-do, Republic of Korea",
+    "3rd Floor, No. 302, 165 Yangsu-ro, Yangseo-myeon, Yangpyeong-gun, Gyeonggi-do, Republic of Korea",
   seoulOffice:
     "4th Floor, 161 Hakdong-ro, Gangnam District, Seoul, Republic of Korea",
 } as const

@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from "motion/react"
 import { useLocation } from "react-router-dom"
 
 import { BackToHome } from "@/components/back-to-home"
+import { footerContact } from "@/lib/nav-config"
 
 const ease = [0.16, 1, 0.3, 1] as const
 
@@ -103,8 +104,14 @@ const HERO_HEADLINE =
 const HERO_SUB =
   "We turn advanced AI into practical systems that help people and organizations work smarter." as const
 
+const MAP_EMBED_HEADQUARTERS =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.4314029818956!2d127.31523297643962!3d37.544898672044184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35634b5fc237b3a9%3A0x51009e18d04ca364!2s165%20Yangsu-ro%2C%20Yangseo-myeon%2C%20Yangpyeong%2C%20Gyeonggi-do!5e0!3m2!1sen!2skr!4v1776992955716!5m2!1sen!2skr" as const
+
+const MAP_EMBED_AI_LAB =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.7598737343264!2d127.02574137643836!3d37.51358127205238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca3efccb2b9ff%3A0x345c2aae93ad4363!2s161%20Hakdong-ro%2C%20Gangnam%20District%2C%20Seoul!5e0!3m2!1sen!2skr!4v1776992805770!5m2!1sen!2skr" as const
+
 /**
- * About page — `/company/about`: Hero + #about-us, #history. Career is `/company/career` (separate route; no #career).
+ * About page — `/company/about`: Hero + #about-us, #history, #locations (addresses + maps). Career is `/company/career`.
  */
 export function CompanyPage() {
   const { hash, pathname } = useLocation()
@@ -163,7 +170,7 @@ export function CompanyPage() {
         </div>
       </section>
 
-      <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-5xl flex-1 px-4 py-12 sm:px-6 lg:px-8">
       <motion.section
         id="about-us"
         aria-labelledby="about-us-heading"
@@ -317,6 +324,60 @@ export function CompanyPage() {
               </ul>
             </motion.div>
           ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        id="locations"
+        aria-labelledby="locations-heading"
+        className="scroll-mt-24 pt-16"
+        {...inView}
+      >
+        <h2
+          id="locations-heading"
+          className="text-xl font-semibold tracking-tight text-foreground"
+        >
+          Locations
+        </h2>
+        <div className="mt-6 flex flex-col gap-12">
+          <div>
+            <h3 className="text-base font-semibold text-foreground">Headquarters</h3>
+            <address className="mt-3 not-italic text-sm leading-relaxed text-muted-foreground">
+              {footerContact.headquarters}
+            </address>
+            <div className="mt-4 overflow-hidden rounded-2xl border border-border shadow-sm">
+              <iframe
+                title="Mazelone headquarters location"
+                src={MAP_EMBED_HEADQUARTERS}
+                width="100%"
+                height={420}
+                className="block w-full"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+          <div>
+            <h3 className="text-base font-semibold text-foreground">AI Lab</h3>
+            <address className="mt-3 not-italic text-sm leading-relaxed text-muted-foreground">
+              {footerContact.seoulOffice}
+            </address>
+            <div className="mt-4 overflow-hidden rounded-2xl border border-border shadow-sm">
+              <iframe
+                title="Mazelone AI Lab location"
+                src={MAP_EMBED_AI_LAB}
+                width="100%"
+                height={320}
+                className="block w-full"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
         </div>
       </motion.section>
 
