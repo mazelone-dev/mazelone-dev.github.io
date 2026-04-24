@@ -232,10 +232,32 @@ export function HomeHero() {
           products people can actually use.
         </motion.p>
 
+        {/* Korean blurb: same color as hero background so it does not show in the UI, but remains in the DOM for SEO. */}
+        <motion.p
+          initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: reduceMotion ? 0 : 0.65, delay: reduceMotion ? 0 : 0.44 }}
+          className="select-none text-pretty"
+          style={{
+            color: heroBg,
+            fontSize: "clamp(14px, 1.6vw, 16px)",
+            fontWeight: 400,
+            lineHeight: 1.65,
+            maxWidth: 580,
+            margin: 0,
+            padding: 0,
+            maxHeight: 0,
+            overflow: "hidden",
+          }}
+        >
+          마젤원(Mazelone)은 기업의 문서, 언어, 이미지, 운영 지식을 AI 제품으로 전환하는
+          엔터프라이즈 AI 기업입니다.
+        </motion.p>
+
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.5 }}
+          transition={{ duration: reduceMotion ? 0 : 0.6, delay: reduceMotion ? 0 : 0.58 }}
           className="text-pretty"
           aria-live="polite"
           style={{

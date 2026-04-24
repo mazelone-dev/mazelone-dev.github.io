@@ -123,7 +123,9 @@ export function SiteFooter() {
             MAZELONE
           </p>
           <p className="text-xs text-muted-foreground">
-            © {year} Mazelone. All rights reserved.
+            © {year}{" "}
+            <span className="sr-only">마젤원 주식회사 · </span>
+            Mazelone Inc. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center gap-2 sm:justify-end">
             <a

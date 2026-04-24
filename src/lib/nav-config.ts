@@ -36,5 +36,5 @@ export const footerContact = {
   headquarters:
     "No.302, 3F., 165, Yangsu-ro, Yangseo-myeon, Yangpyeong-gun, Gyeonggi-do, Republic of Korea",
   seoulOffice:
-    "4th Floor, 161 Hakdong-ro, Gangnam District, Seoul, South Korea",
+    "4th Floor, 161 Hakdong-ro, Gangnam District, Seoul, Republic of Korea",
 } as const
