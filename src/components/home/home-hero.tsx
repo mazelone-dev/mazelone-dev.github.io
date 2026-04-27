@@ -250,8 +250,8 @@ export function HomeHero() {
             overflow: "hidden",
           }}
         >
-          마젤원(Mazelone)은 기업의 문서, 언어, 이미지, 운영 지식을 AI 제품으로 전환하는
-          엔터프라이즈 AI 기업입니다.
+          마젤원(Mazelone)은 문서 처리, 문서 검색, 멀티모달 RAG, AI 번역, 온디바이스 AI 솔루션을
+          개발하는 AI 기업입니다.
         </motion.p>
 
         <motion.div
